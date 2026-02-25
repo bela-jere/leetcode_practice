@@ -1,0 +1,34 @@
+/*
+LeetCode: Is subsequence
+Approach: Brute Force
+Time Complexity: O(n^2)
+Space Complexity: O(m)
+*/
+
+class Solution {
+public:
+    bool isSubsequence(string s, string t) {
+        string sub = t;
+        bool match = false;
+
+
+        for (int i = 0; i < s.size(); i++) {
+            match = false;
+            for (int j = 0; j < sub.size(); j++) {
+                if (s.at(i) == sub.at(j)){
+                    match = true;
+                    sub = sub.substr(j+1, sub.size()-(j+1));
+                    break;
+                    cout << sub;
+                }
+                else {
+                    match = false;
+                }
+            }
+            if(match == false) {
+                return false;
+            }
+        }
+        return true;
+    }
+};
